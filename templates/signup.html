@@ -1,0 +1,46 @@
+{% load static tailwind_tags %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    {% tailwind_css %}
+    <title>Signup</title>
+</head>
+
+<body>
+    <div class="login grid h-screen lg:grid-cols-5 md:grid-cols-2">
+        <div class="form lg:col-span-2 h-full flex flex-col poppins items-center justify-center px-16 my-6">
+            <h1 class="text-4xl mb-5 font-semibold">Signup</h1>
+            <form action="" class="flex flex-col gap-2 w-full" method="POST" autocomplete="off">
+                {% csrf_token %}
+                <label class="text-gray-500 tracking-wider" for="">FIRST NAME<span class="text-red-500">*</span></label>
+                <input type="text" name="first_name" class="rounded p-2 mb-4" autofocus required placeholder="First Name">
+                <label class="text-gray-500 tracking-wider" for="">LAST NAME<span class="text-red-500">*</span></label>
+                <input type="text" name="last_name" class="rounded p-2 mb-4" required placeholder="Last Name">
+                <label class="text-gray-500 tracking-wider" for="">ADDRESS<span class="text-red-500">*</span></label>
+                <input type="text" name="address" class="rounded p-2 mb-4" required placeholder="Address">
+                <label class="text-gray-500 tracking-wider" for="">PHONE NO.<span class="text-red-500">*</span></label>
+                <input type="text" name="ph_no" class="rounded p-2 mb-4" required placeholder="1234567890">
+                <label class="text-gray-500 tracking-wider" for="">COLLEGE NAME<span class="text-red-500">*</span></label>
+                <input type="text" name="college" class="rounded p-2 mb-4" required placeholder="College Name">
+                <label class="text-gray-500 tracking-wider" for="">Date of Birth<span class="text-red-500">*</span></label>
+                <input type="date" name="dob" class="rounded p-2 mb-4" required>
+
+                <label class="text-gray-500 tracking-wider" for="">EMAIL ADDRESS<span class="text-red-500">*</span></label>
+                <input type="email" name="email" class="rounded p-2 mb-4" required placeholder="name@address.com">
+                <label class="text-gray-500 tracking-wider" for="">PASSWORD<span class="text-red-500">*</span></label>
+                <input type="password" name="password" class="rounded p-2 mb-4" required placeholder="Password">
+                <input class="w-full py-3 bg-[#6035ff] text-white rounded-md" type="submit" value="Sign Up">
+                <p class="text-gray-500 text-center">Already have an account? <a class="text-[#6035ff]" href="{% url 'login' %}">Login</a></p>
+            </form>
+        </div>
+        <div class="image h-full lg:col-span-3 md:inline hidden">
+        </div>
+    </div>
+</body>
+
+</html>

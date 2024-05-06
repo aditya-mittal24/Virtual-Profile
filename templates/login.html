@@ -1,0 +1,47 @@
+
+{% load static tailwind_tags %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    {% tailwind_css %}
+    <title>Login</title>
+</head>
+
+<body>
+    <div class="login grid h-screen lg:grid-cols-5 md:grid-cols-2">
+        <div class="form lg:col-span-2 h-full flex flex-col poppins items-center justify-center px-12">
+            <h1 class="text-4xl font-semibold">Login</h1>
+            {% if message %}
+            <div class="message bg-[#ed162c] w-full text-white py-2 px-2 rounded my-5">
+                <p>{{message}}</p>
+            </div>
+            {% endif %}
+            <form action="" class="flex flex-col gap-2 w-full" method="POST" autocomplete="off">
+                {% csrf_token %}
+                <label class="text-gray-500 tracking-wider" for="">EMAIL ADDRESS<span
+                        class="text-red-500">*</span></label>
+                <input type="email" name="email" class="rounded p-2 mb-4" autofocus required
+                    placeholder="name@address.com">
+                <label class="text-gray-500 tracking-wider" for="">PASSWORD<span class="text-red-500">*</span></label>
+                <input type="password" name="password" class="rounded p-2 mb-4" required placeholder="Password">
+                <div class="flex gap-3 items-center mb-4">
+                    <input class="inline-block" type="checkbox" name="remember" id="remember">
+                    <label class="text-gray-500 inline-block" for="remember">Keep me logged in</label>
+                </div>
+                <input class="w-full py-3 bg-[#6035ff] text-white rounded-md cursor-pointer" type="submit"
+                    value="Submit">
+                <p class="text-gray-500 text-center">Don't have an account yet? <a class="text-[#6035ff]"
+                        href="{% url 'signup' %}">Sign Up</a></p>
+            </form>
+        </div>
+        <div class="image h-full lg:col-span-3 md:inline hidden">
+        </div>
+    </div>
+</body>
+
+</html>

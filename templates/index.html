@@ -1,0 +1,67 @@
+{% load static tailwind_tags %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,600,1,0" />
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    {% tailwind_css %}
+    <title>Profile</title>
+</head>
+
+<body>
+    {% include 'partials/_header.html' %}
+    <div class="max-w-[1640px] mx-auto md:px-10 py-10 flex justify-center items-center">
+        <div class="border-[#1B202C] border-[1.5px] max-w-[70%] bg-white rounded-md drop-shadow-lg w-full">
+            <div class="bg-[#1B202C] p-4 flex font-semibold items-stretch gap-3 text-white text-base">
+              {% comment %} <BsFillPersonFill size={18} /> {% endcomment %}
+              <p>Your Profile</p>
+            </div>
+            <div class="px-5 py-2">
+              <div class="grid detail border-b-[#e0e5ec] border-b-[1px] grid-cols-3 gap-10 px-4 py-[0.85rem] font-medium text-[15px]">
+                <span class="text-[#69707a]">Your Name</span>
+                <span class="text-[#3279b7] font-semibold col-span-2 text-center">
+                  {{user.user.first_name}} {{user.user.last_name}}
+                </span>
+              </div>
+              <div class="grid detail border-b-[#e0e5ec] border-b-[1px] grid-cols-3 gap-10 px-4 py-[0.85rem] font-medium text-[15px]">
+                <span class="text-[#69707a]">College</span>
+                <span class="text-[#3279b7] font-semibold col-span-2 text-center">
+                    {{user.college}}
+                </span>
+              </div>
+              <div class="grid detail border-b-[#e0e5ec] border-b-[1px] grid-cols-3 gap-10 px-4 py-[0.85rem] font-medium text-[15px]">
+                <span class="text-[#69707a]">Address</span>
+                <span class="text-[#3279b7] font-semibold col-span-2 text-center">
+                    {{user.address}}
+                </span>
+              </div>
+              <div class="grid detail border-b-[#e0e5ec] border-b-[1px] grid-cols-3 gap-10 px-4 py-[0.85rem] font-medium text-[15px]">
+                <span class="text-[#69707a]">Email ID</span>
+                <span class="text-[#3279b7] font-semibold col-span-2 text-center">
+                  {{user.user.email}}
+                </span>
+              </div>
+              <div class="grid detail border-b-[#e0e5ec] border-b-[1px] grid-cols-3 gap-10 px-4 py-[0.85rem] font-medium text-[15px]">
+                <span class="text-[#69707a]">Contact</span>
+                <span class="text-[#3279b7] font-semibold col-span-2 text-center">
+                  {{user.ph_no}}
+                </span>
+              </div>
+              <div class="grid detail border-b-[#e0e5ec] border-b-[1px] grid-cols-3 gap-10 px-4 py-[0.85rem] font-medium text-[15px]">
+                <span class="text-[#69707a]">DOB</span>
+                <span class="text-[#3279b7] font-semibold col-span-2 text-center">
+                  {{user.dob}}
+                </span>
+              </div>
+            </div>
+          </div>
+    </div>
+</body>
+
+</html>
